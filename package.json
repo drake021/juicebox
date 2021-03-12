@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "morgan": "^1.10.0",
     "pg": "^8.5.1"
   },
