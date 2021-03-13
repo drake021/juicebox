@@ -29,19 +29,19 @@ apiRouter.use(async (req, res, next) => {
   } else {
     next({
       name: 'AuthorizationHeaderError',
-      message: `Authorization token must start with ${ prefix }`
+      message: `Authorization token must start with ${prefix}`
     });
   }
 });
 
 
 apiRouter.use((req, res, next) => {
-    if (req.user) {
-      console.log("User is set:", req.user);
-    }
-  
-    next();
-  });
+  if (req.user) {
+    console.log("User is set:", req.user);
+  }
+
+  next();
+});
 
 
 const usersRouter = require('./users');
@@ -54,7 +54,7 @@ const tagsRouter = require('./tags');
 apiRouter.use('/tags', tagsRouter);
 
 apiRouter.use((error, req, res, next) => {
-    res.send(error);
-  });
-  
-  module.exports = apiRouter;
+  res.send(error);
+});
+
+module.exports = apiRouter;
